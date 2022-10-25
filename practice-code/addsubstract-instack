@@ -1,0 +1,41 @@
+import * as React from 'react';
+import './style.css';
+import { useState } from 'react';
+export default function App() {
+  const [number1, setnumber1] = useState(0);
+  const [number2, setnumber2] = useState(0);
+  const [total, settotal] = useState(number1 + number2);
+  function addthemtogether() {
+    settotal(number1 + number2);
+  }
+  function subthemtogether() {
+    settotal(number1 - number2);
+  }
+
+  return (
+    <div>
+      <input
+        type="number"
+        placeholder="Value no 1"
+        value={number1}
+        onChange={(e) => setnumber1(+e.target.value)}
+      />
+      <br />
+      <br />
+      <input
+        type="number"
+        placeholder="Value no 2"
+        value={number2}
+        onChange={(e) => setnumber2(+e.target.value)}
+      />
+      <br />
+      <button style={{ marginTop: '10px' }} onClick={addthemtogether}>
+        Sum
+      </button>
+      <button style={{ marginTop: '10px' }} onClick={subthemtogether}>
+        Sub
+      </button>
+      <p style={{ fontSize: '50px', color: 'red ' }}>{total}</p>
+    </div>
+  );
+}
